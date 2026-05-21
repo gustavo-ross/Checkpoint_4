@@ -3,6 +3,7 @@ import modelo
 def inicializar_sistema():
     modelo.criar_tabelas()
 
+
 def processar_cadastro(nome, q_txt, p_txt):
     if nome == "" or q_txt == "" or p_txt == "":
         return False, "Todos os campos devem ser preenchidos!"
@@ -20,6 +21,7 @@ def processar_cadastro(nome, q_txt, p_txt):
     except ValueError:
         return False, "Erro nos números! Formato inválido."
 
+
 def processar_remocao(id_txt):
     if id_txt == "":
         return False, "O ID do produto não pode estar vazio."
@@ -30,13 +32,16 @@ def processar_remocao(id_txt):
     except ValueError:
         return False, "ID inválido. Digite um número inteiro."
 
+
 def listar_produtos():
     return modelo.buscar_produtos()
+
 
 def pesquisar_produtos(termo):
     if not termo.strip():
         return listar_produtos()
     return modelo.buscar_produtos_por_nome(f"%{termo}%")
+
 
 def processar_venda(produto_nome, q_txt):
     if not produto_nome or produto_nome == "Selecione":
@@ -64,6 +69,7 @@ def processar_venda(produto_nome, q_txt):
     except ValueError:
         return False, "Quantidade com formato inválido."
 
+
 def obter_dados_dashboard():
     totais, vendas_dia, top_produtos = modelo.buscar_vendas_dashboard()
     faturamento = totais[0] if totais[0] else 0.0
@@ -73,6 +79,11 @@ def obter_dados_dashboard():
     nomes_prod = [linha[0] for linha in top_produtos]
     qtd_prod = [linha[1] for linha in top_produtos]
     return faturamento, qtd_vendida, datas, valores_dia, nomes_prod, qtd_prod
+
+
+def listar_vendas():
+    return modelo.buscar_todas_vendas()
+
 
 def processar_edicao_preco(produto_nome, p_txt):
     if not produto_nome or produto_nome == "Selecione":
@@ -101,8 +112,10 @@ def processar_edicao_preco(produto_nome, p_txt):
     except ValueError:
         return False, "Valor com formato inválido."
 
+
 def listar_historico():
     return modelo.buscar_historico()
+
 
 def pesquisar_historico(termo):
     if not termo.strip():
