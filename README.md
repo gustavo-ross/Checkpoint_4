@@ -35,7 +35,6 @@ O código foi totalmente modularizado e separado em arquivos independentes para 
 
 ---
 
-## 💻 Como Executar o Projeto
+## 💻 Criado por
 
-1. Certifique-se de ter o Python instalado na sua máquina.
-2. Instale as bibliotecas necessárias executando o comando abaixo no terminal:
+Gustavo Ross (c) 2026
