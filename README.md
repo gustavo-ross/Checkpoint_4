@@ -37,4 +37,4 @@ O código foi totalmente modularizado e separado em arquivos independentes para 
 
 ## 💻 Criado por
 
-Gustavo Ross (c) 2026
+Gustavo Ross © 2026
